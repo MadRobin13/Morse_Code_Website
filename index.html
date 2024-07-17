@@ -20,21 +20,21 @@
         font-family: 'Rye';
     }
 
-    #form div {
+    #form div div {
         display: flex;
         justify-content: center;
         flex-direction: column;
         margin: 2vw;
     }
 
-    #form {
+    #form div {
         display: flex;
         flex-direction: row;
         justify-content: center;
         margin-top: 5vh;
     }
 
-    #form div label {
+    #form div div label {
         font-family: 'Rye';
         color: #634a31;
         text-align: center;
@@ -64,22 +64,43 @@
         margin: auto;
     
     }
+
+    #submitBtn {
+        font-family: 'Rye';
+        font-size: 1.5em;
+        color: #634a31;
+        background-color: #f3deb5;
+        border: 2px solid #634a31;
+        border-radius: 1vw;
+        padding: 1vw;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #submitBtn:hover {
+        background-color: #f5dcaa; 
+        }
+        
 </style>
 <body>
     <h1>Morse Code Online Translator</h1>
     <hr>
     <form id="form">
         <div>
-            <label for="english">English</label>
-            <br>
-            <textarea name="english" id="english"></textarea>
+            <div>
+                <label for="english">English</label>
+                <br>
+                <textarea name="english" id="english"></textarea>
+            </div>
+            <div>
+                <label for="morse">Morse Code</label>
+                <br>
+                <textarea name="morse" id="morse"></textarea>
+            </div>
         </div>
-        <div>
-            <label for="morse">Morse Code</label>
-            <br>
-            <textarea name="morse" id="morse"></textarea>
-        </div>
-        <img src="" alt="">
+        <button id="submitBtn" type="submit">
+            Translate
+        </button>
     </form>
 </body>
 </html>
