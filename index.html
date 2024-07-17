@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
+<style>
+    body {
+        background-color: #f5e6c7;
+    }
+    h1 {
+        color: #634a31;
+        text-align: center;
+        margin-top: 4vh;
+        font-size: 4em;
+        font-family: 'Rye';
+    }
+
+    #form div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 2vw;
+    }
+
+    #form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 5vh;
+    }
+
+    #form div label {
+        font-family: 'Rye';
+        color: #634a31;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    textarea {
+        width: 40vw;
+        height: 20vh;
+        font-size: 1.5em;
+        font-family: 'Rye';
+        color: #422a12;
+        background-color: #f3deb5;
+        border: 2px solid #634a31;
+        border-radius: 1vw;
+        padding: 1vw;
+        resize: none;
+    }
+
+    textarea:hover {
+        background-color: #f5dcaa;
+    }
+
+    hr {
+        border: 2px solid #634a31;
+        width: 95vw;
+        margin: auto;
     
+    }
+</style>
+<body>
+    <h1>Morse Code Online Translator</h1>
+    <hr>
+    <form id="form">
+        <div>
+            <label for="english">English</label>
+            <br>
+            <textarea name="english" id="english"></textarea>
+        </div>
+        <div>
+            <label for="morse">Morse Code</label>
+            <br>
+            <textarea name="morse" id="morse"></textarea>
+        </div>
+        <img src="" alt="">
+    </form>
 </body>
 </html>
