@@ -173,23 +173,36 @@
             }
 
             e.preventDefault();
-            let english = document.getElementById('english').value.toString();
-            let morse = document.getElementById('morse').value.toString();
+            let english = document.getElementById("english").value;
+            let morse = document.getElementById("morse").value;
             if(english === "" && morse === "") {
                 console.log(english);
                 alert("Please enter a message to translate");
             }
             else {
-                // englishToMorse(english);
-                // alert("yay")
-                for (let i = 0; i < english.length; i++) {
-                if (english[i] === " ") {
-                    morse += " ";
+                if (english !== "") {
+                    for (let i = 0; i < english.length; i++) {
+                        if (english[i] === " ") {
+                            morse += " ";
+                        }
+                        else {
+                            morse += toMorse[english[i].toUpperCase()];
+                            document.getElementById("morse").value = morse;
+                        }
+                    }
                 }
                 else {
-                    morse += toMorse[english[i].toUpperCase()];
+                    for (let i = 0; i < morse.length; i++) {
+                        if (morse[i] === " ") {
+                            enlish += " ";
+                        }
+                        else {
+                            english += toEnglish[morse[i].toUpperCase()];
+                            document.getElementById("english").value = english;
+                        }
+                    }
                 }
-            }
+                
             }
         }
     });
