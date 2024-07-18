@@ -118,7 +118,6 @@
             toEnglish['-...'] = 'B';
             toEnglish['-.-.'] = 'C';
             toEnglish['-..'] = 'D';
-            toEnglish['.'] = 'E';
             toEnglish['..-.'] = 'F';
             toEnglish['--.'] = 'G';
             toEnglish['....'] = 'H';
@@ -166,6 +165,7 @@
             toEnglish['.--.-.'] = '@';
             toEnglish['...-..-'] = '$';
             toEnglish['.-.-'] = '!';
+            toEnglish['.'] = 'E';
 
             let toMorse = {};
             for (let key in toEnglish) {
@@ -179,28 +179,41 @@
                 console.log(english);
                 alert("Please enter a message to translate");
             }
+            if (english !== "" && morse !== "") {
+                alert("Please enter only one message to translate");
+            }
             else {
                 if (english !== "") {
                     for (let i = 0; i < english.length; i++) {
                         if (english[i] === " ") {
-                            morse += " ";
+                            morse += "      ";
                         }
                         else {
-                            morse += toMorse[english[i].toUpperCase()];
+                            morse += toMorse[english[i].toUpperCase()] + " ";
                             document.getElementById("morse").value = morse;
                         }
                     }
                 }
                 else {
+                    let letter = "";
                     for (let i = 0; i < morse.length; i++) {
                         if (morse[i] === " ") {
-                            english += " ";
+                            english += toEnglish[letter];
+                            letter = "";
                         }
-                        else {
-                            english += toEnglish[morse[i].toUpperCase()];
-                            document.getElementById("english").value = english;
+
+                        if (morse[i] !== " " && i < morse.length) {
+                            letter += morse[i];
+                        }
+
+                        if (toEnglish[letter] === undefined) {
+                            alert("Invalid Morse Code");
+                            document.getElementById("morse").value = "";
+                            break;
                         }
                     }
+
+                    document.getElementById("english").value = english;
                 }
                 
             }
