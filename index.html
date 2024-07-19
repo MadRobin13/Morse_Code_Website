@@ -179,6 +179,9 @@
             if(english === "" && morse === "") {
                 alert("Please enter a message to translate");
             }
+            if(english !== "" && morse !== "") {
+                alert("Please enter only one message to translate");
+            }
             if (english !== "" && morse === "") {
                 for (let i = 0; i < english.length; i++) {
                     if (english[i] === " ") {
@@ -198,14 +201,12 @@
                     morseLetters.push(morseWords[i].split(" "));
                 }
                 for (let i = 0; i < morseWords.length; i++) {
-                    for (let j = 0; j < morseLetters[i].length; j++) {
+                    for (let j = 0; j < morseLetters[i].length; j++) { 
                         english += toEnglish[morseLetters[i][j]];
-                        console.log(english);
                     }
                     english += " ";
                 }
-                english.trim(" ");
-                document.getElementById("english").value = english;
+                document.getElementById("english").value = english.trim(" ");
                 // console.log(english);
             }
         }
