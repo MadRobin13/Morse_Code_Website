@@ -167,15 +167,19 @@
             toMorse['$'] = '...-..-';
             toMorse['!'] = '.-.-';
 
+            toEnglish = {};
+            for (key in toMorse) {
+                toEnglish[toMorse[key]] = key
+            }
+
 
             e.preventDefault();
             let english = document.getElementById("english").value;
             let morse = document.getElementById("morse").value;
-            if(english === "") {
-                console.log(english);
+            if(english === "" && morse === "") {
                 alert("Please enter a message to translate");
             }
-            else {
+            if (english !== "" && morse === "") {
                 for (let i = 0; i < english.length; i++) {
                     if (english[i] === " ") {
                         morse += "      ";
@@ -184,7 +188,25 @@
                         morse += toMorse[english[i].toUpperCase()] + " ";
                     }
                 }
-                document.getElementById("morse").value = morse;
+                document.getElementById("morse").value = morse.trim(" ");
+            }
+            if (morse !== "" && english === "") {
+                let morseWords = [];
+                let morseLetters = [];
+                morseWords = morse.split("       ");
+                for (let i = 0; i < morseWords.length; i++) {
+                    morseLetters.push(morseWords[i].split(" "));
+                }
+                for (let i = 0; i < morseWords.length; i++) {
+                    for (let j = 0; j < morseLetters[i].length; j++) {
+                        english += toEnglish[morseLetters[i][j]];
+                        console.log(english);
+                    }
+                    english += " ";
+                }
+                english.trim(" ");
+                document.getElementById("english").value = english;
+                // console.log(english);
             }
         }
     });
