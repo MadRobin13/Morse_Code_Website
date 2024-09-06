@@ -10,7 +10,7 @@
 
 ![image](https://github.com/user-attachments/assets/bbb63d21-b636-4ac8-a816-67efcf4c853c)
 
-## How to run it:
+## How to run it locally:
 - Clone the repository
 - Open in `VSCode` and open [index.html](index.html)
 - Install the `Live Server` or `Five Server` extension
